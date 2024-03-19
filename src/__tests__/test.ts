@@ -1,4 +1,4 @@
-import Cart from '../service/Cart';
+import Cart from '../Cart';
 
 test('new card should be empty', () => {
   const cart = new Cart();
@@ -31,7 +31,7 @@ test('add & get methods of class Cart', () => {
       genre: [ 'боевик', 'фэнтези', 'приключения' ],
       time: '137 мин./02:17'
     }]
-  expect(result).toEqual(cart.get); 
+  expect(result).toEqual(cart.items); 
 });
 
 test('sum method of class Cart', () => {
@@ -62,8 +62,8 @@ test('sum method of class Cart', () => {
       time: '137 мин./02:17',
     }
   )
-  const sum = cart.sum
-  expect(sum).toBe(1300); 
+  const sum = cart.sum()
+  expect(sum).toEqual(1300); 
 });
 
 test('sumWithDiscount method of class Cart', () => {
