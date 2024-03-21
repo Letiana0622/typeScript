@@ -14,13 +14,8 @@ export default class Cart{
   }
 
   sum(): number {
-    const totalAmount = this._items.reduce(
-      function (acc, item) {
-        return acc + item.price
-      }
-      ,0)
-    return totalAmount
-    }
+    return this._items.reduce((acc: number, item: Buyable2) => acc + item.price, 0)
+  }
 
   sumWithDiscount(discount: number): number {
     return this.sum() * (1-discount/100)
